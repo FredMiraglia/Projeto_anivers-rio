@@ -37,7 +37,7 @@ if uploaded_file is not None:
   
 
 # Converte para datetime do pandas
-    data_convertida = pd.to_datetime(data_atual_br.strftime('%Y-%m-%d'), format='%Y-%m-%d')
+    data_convertida = pd.to_datetime(data_atual_br.strftime('%d-%m-%Y'), format='%d-%m-%y')
 
 # Obtém o dia
     mes_atual = data_convertida.month
@@ -79,6 +79,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
