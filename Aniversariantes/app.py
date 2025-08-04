@@ -20,7 +20,7 @@ if uploaded_file is not None:
 
     # Exibe o dataframe
     st.write("Dados carregados:")
-    st.dataframe(df)
+    #st.dataframe(df)
 
     # Título do app
     st.title("🎂 Aniversariantes do mês")
@@ -28,7 +28,7 @@ if uploaded_file is not None:
         # Garante que a coluna de datas está em formato de data
     df['Nascimento'] = pd.to_datetime(df['Nascimento'])
     df['Nascimento_fmt'] = df['Nascimento'].dt.strftime('%d/%m/%Y')
-    
+    st.dataframe(df)
         # Filtra aniversariantes do mês atual
     fuso_br = pytz.timezone('America/Sao_Paulo')
 
@@ -79,6 +79,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
