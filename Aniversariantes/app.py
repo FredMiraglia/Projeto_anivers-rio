@@ -33,6 +33,7 @@ if uploaded_file is not None:
 
 # Pega a data atual com fuso
     data_atual_br = dt.now(fuso_br)
+    data_atual_br = data_atual_br.dt.date()
 
 # Converte para datetime do pandas
     data_convertida = pd.to_datetime(data_atual_br.strftime('%Y-%m-%d'), format='%Y-%m-%d')
@@ -77,6 +78,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
