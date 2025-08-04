@@ -62,7 +62,7 @@ if uploaded_file is not None:
         for _, row in aniversariante_dia.iterrows():
             
             st.markdown(f"- Nome: **{row['Nome']}** 🎉 - Cargo: ***{row['Setor']}*** - Nascimento: ***{row['Nascimento'].strftime('%d/%m')}*** - {row['Email']}")
-            nome = row[0]
+            nome = row['Nome']
             setor = row['Setor']
             email = row['Email']
             assunto = f"Feliz Aniversário, {nome}!"
@@ -76,6 +76,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
