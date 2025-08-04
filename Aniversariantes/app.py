@@ -50,9 +50,9 @@ if uploaded_file is not None:
     # Exibe os aniversariantes do mês
         for _, row in aniversariantes_mes.iterrows():
             st.markdown(f"-Nome: **{row[0]}** 🎉- Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]} ")
-            nome = row[0]
-            setor = row[1]
-            email = row[3]
+            nome = row.iloc[0]
+            setor = row.iloc[1]
+            email = row.iloc[3]
             data_nascimento = row[2]
             st.write(f"Nome: {nome}, Setor: {setor}, Email: {email}, Data de Nascimento: {data_nascimento.strftime('%d/%m/%Y')}")
 
@@ -62,9 +62,9 @@ if uploaded_file is not None:
         for _, row in aniversariante_dia.iterrows():
             
             st.markdown(f"- Nome: **{row[0]}** 🎉 - Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]}")
-            nome_1 = row[0]
-            setor_1 = row[1]
-            email_1 = row[3]
+            nome_1 = row.iloc[0]
+            setor_1 = row.iloc[1]
+            email_1 = row.iloc[3]
             
             assunto = f"Feliz Aniversário, {nome}!"
             corpo = f"Olá {nome_1},\n\nFeliz aniversário! Que seu dia seja repleto de alegrias e conquistas. Estamos felizes em celebrar este momento especial com você!\n\nAtenciosamente,\nSua equipe"      
@@ -77,6 +77,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
