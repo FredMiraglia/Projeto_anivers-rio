@@ -61,21 +61,23 @@ if uploaded_file is not None:
         st.success(f"🎉 Hoje é aniversário de {len(aniversariante_dia)} pessoa(s)!")
         for _, row in aniversariante_dia.iterrows():
             
-            st.markdown(f"- Nome: **{row['Nome']}** 🎉 - Cargo: ***{row['Setor']}*** - Nascimento: ***{row['Nascimento'].strftime('%d/%m')}*** - {row['Email']}")
-            nome = row['Nome']
-            setor = row['Setor']
-            email = row['Email']
+            st.markdown(f"- Nome: **{row[0]}** 🎉 - Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]}")
+            nome_1 = row[0]
+            setor_1 = row[1]
+            email_1 = row[3]
+            
             assunto = f"Feliz Aniversário, {nome}!"
-            corpo = f"Olá {nome},\n\nFeliz aniversário! Que seu dia seja repleto de alegrias e conquistas. Estamos felizes em celebrar este momento especial com você!\n\nAtenciosamente,\nSua equipe"      
+            corpo = f"Olá {nome_1},\n\nFeliz aniversário! Que seu dia seja repleto de alegrias e conquistas. Estamos felizes em celebrar este momento especial com você!\n\nAtenciosamente,\nSua equipe"      
             
             sender = es.GmailSender()
-            sender.send_email(body=corpo, subject=assunto, to=email)
+            sender.send_email(body=corpo, subject=assunto, to=email_1)
 
             st.success("E-mail enviado com sucesso! 🎉")
 
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
