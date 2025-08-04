@@ -49,11 +49,11 @@ if uploaded_file is not None:
         st.success(f"🎈 Encontramos {len(aniversariantes_mes)} aniversariante(s) para o mês de {dt.now().strftime('%B')}!")
     # Exibe os aniversariantes do mês
         for _, row in aniversariantes_mes.iterrows():
-            st.markdown(f"-Nome: **{row[0]}** 🎉- Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]} ")
+            st.markdown(f"-Nome: **{row.iloc[0]}** 🎉- Cargo: ***{row.iloc[1]}*** - Nascimento: ***{row.iloc[2].strftime('%d/%m')}*** - {row.iloc[3]} ")
             nome = row.iloc[0]
             setor = row.iloc[1]
             email = row.iloc[3]
-            data_nascimento = row[2]
+            data_nascimento = row.iloc[2]
             st.write(f"Nome: {nome}, Setor: {setor}, Email: {email}, Data de Nascimento: {data_nascimento.strftime('%d/%m/%Y')}")
 
             
@@ -61,7 +61,7 @@ if uploaded_file is not None:
         st.success(f"🎉 Hoje é aniversário de {len(aniversariante_dia)} pessoa(s)!")
         for _, row in aniversariante_dia.iterrows():
             
-            st.markdown(f"- Nome: **{row[0]}** 🎉 - Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]}")
+            st.markdown(f"- Nome: **{row.iloc[0]}** 🎉 - Cargo: ***{row.iloc[1]}*** - Nascimento: ***{row.iloc[2].strftime('%d/%m')}*** - {row.iloc[3]}")
             nome_1 = row.iloc[0]
             setor_1 = row.iloc[1]
             email_1 = row.iloc[3]
@@ -77,6 +77,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
