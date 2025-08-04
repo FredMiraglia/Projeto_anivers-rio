@@ -38,7 +38,7 @@ if uploaded_file is not None:
     data_convertida = pd.to_datetime(data_atual_br.strftime('%Y-%m-%d'), format='%Y-%m-%d')
 
 # Obtém o dia
-    nes_atual = data_convertida.month
+    mes_atual = data_convertida.month
     dia_atual = data_convertida.day
     # Filtra os aniversariantes do mês atual
 
@@ -76,6 +76,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
