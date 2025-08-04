@@ -18,8 +18,10 @@ class GmailSender:
 
         context = ssl.create_default_context()
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 587, context=context) as smtp:
+        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+            smtp.starttls(context=context)
             smtp.login(self.email_address, self.email_password)
             smtp.send_message(msg)
+
 
 
