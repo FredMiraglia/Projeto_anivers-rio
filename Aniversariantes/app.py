@@ -9,7 +9,7 @@ import pytz
 
 
 # Título do app
-st.title("Aniversariantes do mês 🎂")
+st.title("Calendário de Comemorações 🎂")
 
 # Upload do arquivo
 uploaded_file = st.file_uploader("Escolha um arquivo Excel", type=["xlsx"])
@@ -78,6 +78,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
