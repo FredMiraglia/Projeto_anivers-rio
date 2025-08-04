@@ -30,8 +30,16 @@ if uploaded_file is not None:
     
         # Filtra aniversariantes do mês atual
     fuso_br = pytz.timezone('America/Sao_Paulo')
-    mes_atual = pd.to_datetime(dt.now(), format='%Y-%m-%d').month
-    dia_atual = pd.to_datetime(data_atual_br = dt.now(fuso_br), format='%Y-%m-%d').day
+
+# Pega a data atual com fuso
+     data_atual_br = dt.now(fuso_br)
+
+# Converte para datetime do pandas
+    data_convertida = pd.to_datetime(data_atual_br.strftime('%Y-%m-%d'), format='%Y-%m-%d')
+
+# Obtém o dia
+    nes_atual = data_convertida.month
+    dia_atual = data_convertida.day
     # Filtra os aniversariantes do mês atual
 
     aniversariantes_mes = df[df['Nascimento'].dt.month == mes_atual]
@@ -68,6 +76,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
