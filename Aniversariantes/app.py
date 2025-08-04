@@ -63,11 +63,11 @@ if uploaded_file is not None:
             
             st.markdown(f"- Nome: **{row[0]}** 🎉 - Cargo: ***{row[1]}*** - Nascimento: ***{row[2].strftime('%d/%m')}*** - {row[3]}")
             nome = row[0]
-            setor = row[0]
+            setor = row[1]
             email = row[3]
             assunto = f"Feliz Aniversário, {nome}!"
             corpo = f"Olá {nome},\n\nFeliz aniversário! Que seu dia seja repleto de alegrias e conquistas. Estamos felizes em celebrar este momento especial com você!\n\nAtenciosamente,\nSua equipe"      
-            st.write(f"Nome: {nome}, Setor: {setor}, Email: {email}, Assunto: {assunto}, Corpo: {corpo}")
+            
             sender = es.GmailSender()
             sender.send_email(body=corpo, subject=assunto, to=email)
 
@@ -76,6 +76,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
