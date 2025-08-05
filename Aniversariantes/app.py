@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Escolha um arquivo Excel", type=["xlsx"])
 
 if uploaded_file is not None:
     # Carrega o conteúdo do Excel com pandas
-    df = pd.read_excel(uploaded_file) 
+    df = pd.read_excel(uploaded_file, parse_dates=['Nascimento']) 
 
     # Exibe o dataframe
     st.write("Dados carregados:")
@@ -78,6 +78,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
