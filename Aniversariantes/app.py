@@ -5,6 +5,7 @@ import email_sender as es  # Importa o módulo email_sender
 # Importa a classe GmailSender do arquivo enviar.py
 import email_sender
 import pytz
+import plotly.express as px
 
 
 
@@ -28,6 +29,13 @@ if uploaded_file is not None:
         # Garante que a coluna de datas está em formato de data
     df['Nascimento'] = pd.to_datetime(df['Nascimento'])
     st.dataframe(df)
+    df2 = df[['Nome','Nascimento']]
+    df2['Mes'] = df['Nascimento'].dt.month_name()
+    quantidade_por_mes = df2['Mes'].value_counts().reset_index()
+    quantidade_por_mes.columns = ['Mes', 'Quantidade']   
+
+    fig = px.bar(quantidade_por_mes, x='Mes', y='Quantidade', color='Mes', title='Quantidade de Aniversariantes por Mês')
+    st.plotly_chart(fig)
         # Filtra aniversariantes do mês atual
     fuso_br = pytz.timezone('America/Sao_Paulo')
 
@@ -78,6 +86,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
