@@ -63,7 +63,7 @@ if uploaded_file is not None:
             setor = row.iloc[1]
             email = row.iloc[3]
             data_nascimento = row.iloc[2]
-            st.write(f"Nome: {nome}, Setor: {setor}, Email: {email}, Data de Nascimento: {data_nascimento.strftime('%d/%m/%Y')}")
+           
 
             
     if not aniversariante_dia.empty:
@@ -86,6 +86,7 @@ if uploaded_file is not None:
             
 else:
     st.warning("😕 Ninguém faz aniversário hoje.")
+
 
 
 
